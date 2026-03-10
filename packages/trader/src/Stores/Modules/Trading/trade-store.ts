@@ -1286,8 +1286,27 @@ export default class TradeStore extends BaseStore {
      */
     updateStore(new_state: Partial<TradeStore>) {
         Object.keys(cloneObject(new_state) || {}).forEach(key => {
-            if (key === 'root_store' || ['validation_rules', 'validation_errors', 'currency'].indexOf(key) > -1) return;
-            if (JSON.stringify(this[key as keyof this]) === JSON.stringify(new_state[key as keyof TradeStore])) {
+            if (
+                key === 'root_store' ||
+                key === 'autotrade_store' ||
+                ['validation_rules', 'validation_errors', 'currency'].indexOf(key) > -1
+            )
+                return;
+            const safeStringify = (val: unknown) => {
+                try {
+                    const seen = new WeakSet();
+                    return JSON.stringify(val, (_, v) => {
+                        if (typeof v === 'object' && v !== null) {
+                            if (seen.has(v)) return '[Circular]';
+                            seen.add(v);
+                        }
+                        return v;
+                    });
+                } catch {
+                    return String(val);
+                }
+            };
+            if (safeStringify(this[key as keyof this]) === safeStringify(new_state[key as keyof TradeStore])) {
                 delete new_state[key as keyof TradeStore];
             } else {
                 if (key === 'symbol') {

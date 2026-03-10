@@ -1,6 +1,6 @@
 /* eslint-disable import/no-named-as-default-member */
 /* eslint-disable import/no-named-as-default */
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
 import React from 'react';
 import 'promise-polyfill';
 // eslint-disable-next-line
@@ -32,9 +32,10 @@ if (!has_endpoint_url) {
             ? initStore(AppNotificationMessages, accounts)
             : initStore(AppNotificationMessages);
 
-        const wrapper = document.getElementById('deriv_app');
-        if (wrapper) {
-            ReactDOM.render(<App useSuspense={false} root_store={root_store} />, wrapper);
+        const container = document.getElementById('deriv_app');
+        if (container) {
+            const root = createRoot(container);
+            root.render(<App useSuspense={false} root_store={root_store} />);
         }
     };
 

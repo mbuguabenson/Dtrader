@@ -37,8 +37,8 @@ module.exports = function (env) {
             {
                 react: 'react',
                 'react-dom': 'react-dom',
-                'react-router-dom': 'react-router-dom',
-                'react-router': 'react-router',
+                // 'react-router-dom': 'react-router-dom', // Bundled internally to avoid v5/v7 conflicts with Profithub
+                // 'react-router': 'react-router',
                 mobx: 'mobx',
                 'mobx-react-lite': 'mobx-react-lite',
                 '@deriv/shared': '@deriv/shared',

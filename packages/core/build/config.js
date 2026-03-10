@@ -10,74 +10,92 @@ const copyConfig = base => {
         {
             from: path.resolve(__dirname, '../../../node_modules/@deriv/bot-web-ui/dist/bot/css/'),
             to: 'bot/css/',
+            noErrorOnMissing: true,
         },
         {
             from: path.resolve(__dirname, '../../../node_modules/@deriv/bot-web-ui/dist/bot/media/'),
             to: 'media',
+            noErrorOnMissing: true,
         },
         {
             from: path.resolve(__dirname, '../../../node_modules/@deriv/bot-web-ui/dist/bot/js/'),
             to: 'bot/js/',
+            noErrorOnMissing: true,
         },
         {
             from: path.resolve(__dirname, '../../../node_modules/@deriv/deriv-charts/dist'),
             to: 'js/smartcharts/',
+            noErrorOnMissing: true,
         },
         {
             from: path.resolve(__dirname, '../../../node_modules/@deriv/deriv-charts/dist/chart/assets'),
             to: 'assets',
+            noErrorOnMissing: true,
         },
         {
             from: path.resolve(__dirname, '../../../node_modules/@deriv/deriv-charts/dist/chart/assets'),
             to: 'contract/assets',
+            noErrorOnMissing: true,
         },
         {
             from: path.resolve(__dirname, '../../../node_modules/@deriv/deriv-charts/dist/chart/assets'),
             to: 'bot/assets',
+            noErrorOnMissing: true,
         },
         {
             from: path.resolve(__dirname, '../../../node_modules/@deriv/account/dist/account/js/'),
             to: 'account/js',
+            noErrorOnMissing: true,
         },
         {
             from: path.resolve(__dirname, '../../../node_modules/@deriv/account/dist/account/css/'),
             to: 'account/css',
+            noErrorOnMissing: true,
         },
         {
             from: path.resolve(__dirname, '../../../node_modules/@deriv/cashier/dist/cashier/js/'),
             to: 'cashier/js',
+            noErrorOnMissing: true,
         },
         {
             from: path.resolve(__dirname, '../../../node_modules/@deriv/cashier/dist/cashier/css/'),
             to: 'cashier/css',
+            noErrorOnMissing: true,
         },
         {
             from: path.resolve(__dirname, '../../../node_modules/@deriv/cashier/dist/cashier/public'),
             to: 'cashier/public',
+            noErrorOnMissing: true,
         },
         {
             from: path.resolve(__dirname, '../../../node_modules/@deriv/trader/dist/trader'),
             to: 'trader',
+            noErrorOnMissing: true,
         },
         {
             from: path.resolve(__dirname, '../../../node_modules/@deriv/reports/dist/reports/js/'),
             to: 'reports/js',
+            noErrorOnMissing: true,
         },
         {
             from: path.resolve(__dirname, '../../../node_modules/@deriv/reports/dist/reports/css/'),
             to: 'reports/css',
+            noErrorOnMissing: true,
         },
         {
             from: path.resolve(__dirname, '../../../node_modules/@deriv/cfd/dist/cfd'),
             to: 'cfd',
+            noErrorOnMissing: true,
         },
         {
             from: path.resolve(__dirname, '../../../node_modules/@deriv/appstore/dist/appstore'),
             to: 'appstore',
+            noErrorOnMissing: true,
         },
         {
             from: path.resolve(__dirname, '../../../node_modules/@deriv/wallets/dist/wallets'),
             to: 'wallets',
+            noErrorOnMissing: true,
         },
         { from: path.resolve(__dirname, '../scripts/CNAME'), to: 'CNAME', toType: 'file', noErrorOnMissing: true },
         {
@@ -141,6 +159,7 @@ const copyConfig = base => {
             from: path.resolve(__dirname, '../../../node_modules/@deriv/components/lib/icon/sprites'),
             to: 'public/sprites',
             toType: 'dir',
+            noErrorOnMissing: true,
         },
         {
             from: path.resolve(__dirname, '../src/templates/app/manifest.json'),

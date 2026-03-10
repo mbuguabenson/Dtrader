@@ -144,28 +144,24 @@ const AppWithoutTranslation = ({ root_store }) => {
 
     return (
         <>
-            {is_translation_loaded ? (
-                <Router basename={has_base ? `/${base}` : null}>
-                    <StoreProvider store={root_store}>
-                        <BreakpointProvider>
-                            <APIProvider>
-                                <POIProvider>
-                                    <P2PSettingsProvider>
-                                        <TranslationProvider defaultLang={language} i18nInstance={i18nInstance}>
-                                            {/* This is required as translation provider uses suspense to reload language */}
-                                            <React.Suspense fallback={<Loading />}>
-                                                <AppContent passthrough={platform_passthrough} />
-                                            </React.Suspense>
-                                        </TranslationProvider>
-                                    </P2PSettingsProvider>
-                                </POIProvider>
-                            </APIProvider>
-                        </BreakpointProvider>
-                    </StoreProvider>
-                </Router>
-            ) : (
-                <></>
-            )}
+            <Router basename={has_base ? `/${base}` : null}>
+                <StoreProvider store={root_store}>
+                    <BreakpointProvider>
+                        <APIProvider>
+                            <POIProvider>
+                                <P2PSettingsProvider>
+                                    <TranslationProvider defaultLang={language} i18nInstance={i18nInstance}>
+                                        {/* This is required as translation provider uses suspense to reload language */}
+                                        <React.Suspense fallback={<Loading />}>
+                                            <AppContent passthrough={platform_passthrough} />
+                                        </React.Suspense>
+                                    </TranslationProvider>
+                                </P2PSettingsProvider>
+                            </POIProvider>
+                        </APIProvider>
+                    </BreakpointProvider>
+                </StoreProvider>
+            </Router>
         </>
     );
 };

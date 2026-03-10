@@ -1,5 +1,6 @@
 import React from 'react';
 import Loadable from 'react-loadable';
+import { BrowserRouter } from 'react-router-dom';
 
 import type { TCoreStores } from '@deriv/stores/types';
 
@@ -37,16 +38,18 @@ const App = ({ passthrough }: Apptypes) => {
     }, [root_store]);
 
     return (
-        <TraderProviders store={root_store}>
-            <ModulesProvider store={root_store}>
-                <Routes />
-                <TradeModals />
-                <NetworkStatusToastErrorPopup />
-                <TradeHeaderExtensions store={root_store} />
-                <TradeFooterExtensions />
-                <TradeSettingsExtensions store={root_store} />
-            </ModulesProvider>
-        </TraderProviders>
+        <BrowserRouter basename="/dtrader">
+            <TraderProviders store={root_store}>
+                <ModulesProvider store={root_store}>
+                    <Routes />
+                    <TradeModals />
+                    <NetworkStatusToastErrorPopup />
+                    <TradeHeaderExtensions store={root_store} />
+                    <TradeFooterExtensions />
+                    <TradeSettingsExtensions store={root_store} />
+                </ModulesProvider>
+            </TraderProviders>
+        </BrowserRouter>
     );
 };
 
